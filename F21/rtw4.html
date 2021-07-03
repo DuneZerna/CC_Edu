@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>RTW - 4</title>
+
+	<link rel="stylesheet" href="../dist/reset.css">
+	<link rel="stylesheet" href="../dist/reveal.css">
+	<link rel="stylesheet" href="../dist/theme/black.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="../plugin/highlight/monokai.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>Express</section>
+			<section>
+				<section>
+					<h4>Overview</h4>
+					<p class="fragment">... <em>Express is a small framework that sits on top of Node.js’s web server
+							functionality to
+							simplify its APIs and add helpful new features.</em></p>
+					<p class="fragment">{Read: Middleware}</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h4>Middleware</h4>
+					<img class="r-stretch"
+						src="https://www.researchgate.net/publication/273874993/figure/fig15/AS:325671223087107@1454657478043/Location-of-the-middleware-layer.png">
+				</section>
+			</section>
+			<section>
+				<section>
+					<h4>How does Express work</h4>
+				</section>
+				<section>
+					<h4>Static files</h4>
+					<pre><code data-trim data-noescape>
+const express = require('express');
+
+app.use(express.static(path.join(__dirname, 'public')));
+  </code></pre>
+				</section>
+				<section>
+					<h4>Handling JSON objects</h4>
+					<pre><code data-trim data-noescape>
+const express = require('express');
+
+// Equal to body-parser
+app.use(express.urlencoded());
+
+// Parse JSON bodies (as sent by API clients)
+app.use(express.json());
+  </code></pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h4>Jade &amp; Views</h4>
+					<p class="fragment">... <em>Jade is a template engine for Node.js.</em></p>
+				</section>
+				<section>
+					<img src="../img/jade_view.png">
+				</section>
+				<section>
+					<pre><code data-trim data-noescape>
+var jade = require('jade');
+
+// Compile a function
+var fn = jade.compile('string of jade', options);
+
+// Render the function
+var html = fn(locals);
+// => '<string>of jade</string>'
+jade.compileFile(path, options)
+  </code></pre>
+				</section>
+			</section>
+			<section>
+				<h4>Please wait</h4>
+				<p>Changing to Visual Studio Code</p>
+			</section>
+		</div>
+	</div>
+
+	<script src="../dist/reveal.js"></script>
+	<script src="../plugin/notes/notes.js"></script>
+	<script src="../plugin/markdown/markdown.js"></script>
+	<script src="../plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
+</html>

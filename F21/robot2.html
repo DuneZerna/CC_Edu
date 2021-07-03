@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Accuracy of sensors – precision and filtering</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/black.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <section>
+                    <h4>Accuracy of sensors – precision and filtering</h4>
+                </section>
+                <section>
+                    <h4>In sensors where occuring errors is a certainty: using Black-box testing, Odometry and Kalman
+                        filters will decrease the probability of errors.
+                    </h4>
+                </section>
+            </section>
+            <section>
+                <h4>Approach: Black-box testing</h4>
+                <p class="fragment">Without any particular prior knowledge of the character or physics of the
+                    relationships involved. We try to fit the curve rather than doing a model.</p>
+            </section>
+            <section>
+                <section>
+                    <h4>Black-box testing; Odometry</h4>
+                </section>
+                <section>
+                    <h4>Odometry</h4>
+                    <p class="fragment">Using data from motion senstors to estimate change in position over time.</p>
+                </section>
+                <section>
+                    <p>We do not really use black-box testing of choice</p>
+                    <p class="fragment">Odometry introduces a lot of unknowns into the equations.</p>
+                    <p class="fragment">Odometry is prone to errors</p>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>Measuring accuracy</h4>
+                </section>
+                <section>
+                    <h4>Example</h4>
+                    <img class="r-stretch" src="img/odometry.png">
+                </section>
+                <section>
+                    <h4>TODO</h4>
+                    <ol>
+                        <li class="fragment">Calculate the mean of the data from the gyroscope and accelerometer</li>
+                        <li class="fragment">Calculate the standard deviation of the same</li>
+                        <li class="fragment">Generate probability density</li>
+                        <li class="fragment">Integrate probability density function to find the distribution</li>
+                    </ol>
+                </section>
+                <section>
+                    <h4>Gaussian Noise</h4>
+                    <p class="fragment">Zero mean gaussian distribution (we reduce the spots noise can occupy</p>
+                </section>
+                <section>
+                    <h4>TODO</h4>
+                    <ol>
+                        <li class="fragment">Do a repeatability test to get a linear offset</li>
+                        <li class="fragment">Do a stability test to get the SD around the mean of the repeatability test
+                        </li>
+                        <li class="fragment">Do a drift test to account for the earth rotation and/or movement</li>
+                    </ol>
+                    <p class="fragment">We grab the SD between the results</p>
+                    <p class="fragment">Use the SD to create a zero mean gaussian distribution</p>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>Applying the Kalman filters</h4>
+                    <p class="fragment">
+                        The Kalman Filter design assumes normal distribution of the measurement errors.</p>
+                </section>
+                <section>
+                    <h4>Kalman filter algorithm two stages</h4>
+                    <ul>
+                        <li class="fragment">Prediction</li>
+                        <li class="fragment">Update</li>
+                    </ul>
+                </section>
+            </section>
+        </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+        // More info about initialization & config:
+        // - https://revealjs.com/initialization/
+        // - https://revealjs.com/config/
+        Reveal.initialize({
+            hash: true,
+
+            // Learn about plugins: https://revealjs.com/plugins/
+            plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+        });
+    </script>
+</body>
+
+</html>

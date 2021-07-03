@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>RTW - 3</title>
+
+	<link rel="stylesheet" href="../dist/reset.css">
+	<link rel="stylesheet" href="../dist/reveal.css">
+	<link rel="stylesheet" href="../dist/theme/black.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="../plugin/highlight/monokai.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>Socket.IO</section>
+			<section>
+				<section>
+					<h4>Overview</h4>
+					<p class="fragment">... <em>enables real-time, bidirectional and event-based communication.</em></p>
+				</section>
+				<section>
+					<p>Javascript library for manipulating WebSockets</p>
+					<p class="fragment">Handles diconnection and connection events</p>
+					<p class="fragment">Room broadcasting</p>
+				</section>
+			</section>
+			<section>
+				<section data-background-color="white">
+					<h4>Communication protocol</h4>
+					<img class="r-stretch"
+						src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Internet_layering.svg/440px-Internet_layering.svg.png">
+				</section>
+				<section>
+					<h4>Websockets</h4>
+					<p class="fragment">... <em>WebSocket is a computer communications protocol, providing full-duplex
+							communication channels over a single TCP connection.</em></p>
+				</section>
+				<section>
+					<h4>Overview</h4>
+					<ul>
+						<li class="fragment">HTTP-Upgrade</li>
+						<li class="fragment">Standardised and easy to implement</li>
+						<li class="fragment">Headers only sent once</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<h4>Please wait</h4>
+				<p>Changing to Visual Studio Code</p>
+			</section>
+		</div>
+	</div>
+
+	<script src="../dist/reveal.js"></script>
+	<script src="../plugin/notes/notes.js"></script>
+	<script src="../plugin/markdown/markdown.js"></script>
+	<script src="../plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
+</html>

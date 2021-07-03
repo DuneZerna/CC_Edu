@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>RTW - 2</title>
+
+	<link rel="stylesheet" href="../dist/reset.css">
+	<link rel="stylesheet" href="../dist/reveal.css">
+	<link rel="stylesheet" href="../dist/theme/black.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="../plugin/highlight/monokai.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>NoSQL</section>
+			<section>
+				<h4>Overview</h4>
+				<ul>
+					<li class="fragment">Key-Value</li>
+					<li class="fragment">Document</li>
+					<li class="fragment">Wide-column</li>
+					<li class="fragment">Graph</li>
+				</ul>
+			</section>
+			<section>
+				<section>
+					<h4>MongoDB</h4>
+					<p class="fragment"><em>MongoDB is a general purpose, document-based, distributed database built for
+							modern
+							application developers and for the cloud era.</em>- MongoDB.com</p>
+				</section>
+				<section>
+					<h4>CRUD Operations</h4>
+					<ul>
+						<li class="fragment">Create</li>
+						<li class="fragment">Read</li>
+						<li class="fragment">Update</li>
+						<li class="fragment">Delete</li>
+					</ul>
+				</section>
+				<section>
+					<h4>Example: Create</h4>
+					<pre><code data-trim data-noescape>
+        const response = await User.create({
+        username,
+        password,
+        default_room
+        })
+        console.log('Created: ', response)
+  </code></pre>
+				</section>
+				<section>
+					<h4>Example: Read</h4>
+					<pre><code data-trim data-noescape>
+    const user = await User.findOne({ username }).lean();
+    session_user = user;
+  </code></pre>
+				</section>
+				<section>
+					<h4>Example: Update</h4>
+					<pre><code data-trim data-noescape>
+		await User.updateOne(
+		{ _id },
+		{
+		$set: { password }
+		}
+		)
+  </code></pre>
+				</section>
+				<section>
+					<h4>Example: Delete</h4>
+					<pre><code data-trim data-noescape>
+try {
+db.orders.deleteOne( { "_id" : ObjectId("563237a41a4d68582c2509da") } );
+} catch (e) {
+print(e);
+}
+  </code></pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h4>Schemas</h4>
+					<pre><code data-trim data-noescape>
+const mongoose = require('mongoose');
+
+const UserSchema = new mongoose.Schema({
+username: {type: String, required: true, unique: true},
+password: { type: String, required: true },
+room: {type: Number, required: true, default: 1}
+}, { collection: 'users' }
+);
+
+const model = mongoose.model('UserSchema', UserSchema);
+
+module.exports = model;
+  </code></pre>
+				</section>
+			</section>
+			<section>
+				<h4>Please wait</h4>
+				<p>Changing to Visual Studio Code</p>
+			</section>
+		</div>
+	</div>
+
+	<script src="../dist/reveal.js"></script>
+	<script src="../plugin/notes/notes.js"></script>
+	<script src="../plugin/markdown/markdown.js"></script>
+	<script src="../plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Rotation Sensors</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/black.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h4>Rotation Sensors</h4>
+            </section>
+            <section>
+                <section>
+                    <h4>Gyroscopes</h4>
+                </section>
+                <section>
+                    <p>Uses Earth's gravity to help determine orientation</p>
+                    <p class="fragment">Senses angular velocity</p>
+                    <p class="fragment">deg/s</p>
+                    <p class="fragment">Measures in 1 or more axis</p>
+                </section>
+                <section>
+                    <h4>Different types of gyroscopes</h4>
+                    <div class="r-stack">
+                        <img class="fragment" src="img/classic_gyro.gif">
+                        <img class="fragment" src="img/rlg.gif">
+                    </div>
+                </section>
+                <section>
+                    <h4>Ring Laser Gyroscope (RLG)</h4>
+                    <p class="fragment">Measures angular velocity</p>
+                    <p class="fragment">Operates on the Sagnac Effect</p>
+                </section>
+                <section>
+                    <h4>Ring Laser Gyroscope</h4>
+                    <table>
+                        <tr>
+                            <th>Pros</th>
+                            <th>Cons</th>
+                        </tr>
+                        <tr class="fragment">
+                            <td>No drift</td>
+                            <td>One axis</td>
+                        </tr>
+                    </table>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>Accelerometer</h4>
+                </section>
+                <section>
+                    <p>An accelerometer is an electromechanical device that will measure acceleration forces</p>
+                    <p class="fragment">Analog output</p>
+                    <p class="fragment">Digital output</p>
+                </section>
+                <section>
+                    <h4>Analog output</h4>
+                    <img class="r-stretch" src="img/analog_accelerometer.jpg">
+                    <p class="fragment">Continuous voltage proportional to acceleration</p>
+                </section>
+                <section>
+                    <h4>Digital output</h4>
+                    <img class="r-stretch" src="img/digital_accelerometer.png">
+                    <p class="fragment">PWM and duty cycle</p>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>Accelerometer vs. Gyroscope</h4>
+                    <img class="r-stretch" src="img/a_vs_g.png">
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>Sensor fusion: Drones</h4>
+                    <img class="r-stretch" src="img/drone.jpg">
+                    <p>Combine sensory data from the sources and generate
+                        information that
+                        has less uncertainty, or more accuracy</p>
+                </section>
+                <section>
+                    <h4>More accurate &amp; precise data</h4>
+                    <p class="fragment">Apply Kalman filter!</p>
+                </section>
+
+            </section>
+        </div>
+    </div>
+    <script src="dist/reveal.js">
+    </script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+        // More info about initialization & config:
+        // - https://revealjs.com/initialization/
+        // - https://revealjs.com/config/
+        Reveal.initialize({
+            hash: true,
+
+            // Learn about plugins: https://revealjs.com/plugins/
+            plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+        });
+    </script>
+</body>
+
+</html>

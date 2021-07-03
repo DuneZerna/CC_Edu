@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Project presentation</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/black.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h4>EV3 in a swarm robotic system</h4>
+            </section>
+            <section>
+                <section>
+                    <h4>Introducing the Kraken</h4>
+                    <img class="r-stretch" src="img/kraken.jpg">
+                </section>
+                <section>
+                    <h4>Kraken as an individual</h4>
+                    <p class="fragment">Adventerous by nature</p>
+                    <p class="fragment">Helpful by heart</p>
+                    <p class="fragment">Proven scout</p>
+                </section>
+                <section>
+                    <h4>Finite State Machine</h4>
+                    <img class="r-stretch" src="img/fsm.png">
+                </section>
+                <section>
+                    <h4>Kraken equipment</h4>
+                    <ul>
+                        <li class="fragment">Ultra sonic sensor blaster 3000</li>
+                        <li class="fragment">Colour sensor mega turbo 9000</li>
+                        <li class="fragment">A button...</li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>Kraken code</h4>
+                    <div class="r-stack">
+                        <img class="fragment" src="img/control.png">
+                        <img class="fragment" src="img/if.png">
+                    </div>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>Kraken in the swarm</h4>
+                </section>
+                <section>
+                    <h4>Swarm?</h4>
+                    <div class="r-stack">
+                        <img class="fragment fade-in-then-out" src="img/table.jpg">
+                        <img class="fragment" src="img/swarm_table.png">
+                    </div>
+                </section>
+                <section>
+                    <h4>Did it work?</h4>
+                    <video autoplay controls src="vid/kraken.mp4" class="r-stretch">Video of Kraken</video>
+                    <p class="fragment">In theory -> it should have</p>
+                    <p class="fragment">In reality -> no</p>
+                </section>
+                <section>
+                    <h4>Reflective thoughts</h4>
+                    <p class="fragment">Lacks somekind of lifting fork</p>
+                    <p class="fragment">Proper PID implementation</p>
+                    <p class="fragment">More in-depth test with several units</p>
+                </section>
+                <section>
+                    <h4>Simulation</h4>
+                    <img class="r-stretch" src="img/gazebo.png">
+                </section>
+            </section>
+        </div>
+    </div>
+    <script src="dist/reveal.js">
+    </script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+        // More info about initialization & config:
+        // - https://revealjs.com/initialization/
+        // - https://revealjs.com/config/
+        Reveal.initialize({
+            hash: true,
+
+            // Learn about plugins: https://revealjs.com/plugins/
+            plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+        });
+    </script>
+</body>
+
+</html>

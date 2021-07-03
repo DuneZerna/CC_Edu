@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>RTW - 5</title>
+
+	<link rel="stylesheet" href="../dist/reset.css">
+	<link rel="stylesheet" href="../dist/reveal.css">
+	<link rel="stylesheet" href="../dist/theme/black.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="../plugin/highlight/monokai.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>Three-Tier Architecture</section>
+			<section>
+				<section>
+					<h4>Overview</h4>
+					<p class="fragment">... <em>Three-tier architecture, which separates applications into three logical
+							and physical
+							computing tiers</em></p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h4>Explanation</h4>
+					<img class="r-stretch"
+						src="https://docs.aws.amazon.com/whitepapers/latest/serverless-multi-tier-architectures-api-gateway-lambda/images/image2.png">
+				</section>
+			</section>
+			<section>
+				<section>
+					<h4>Example: Client</h4>
+					<pre><code data-trim>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>The Game - Login</title>
+</head>
+
+<body>
+	<h1>Login</h1>
+	<form id="login">
+		<input type="text" id="username" placeholder="Username" autocomplete="off">
+		<input type="password" id="password" placeholder="Password">
+		<input type="submit" value="Login">
+	</form>
+	<p>No account? - Go <a href="register.html">Here</a></p>
+</body>
+  </code></pre>
+				</section>
+				<section>
+					<h4>Example: Server</h4>
+					<pre><code data-trim data-noescape>
+app.post('/api/login', async (req, res) => {
+
+// Dune: User validation
+const { username, password } = req.body;
+
+// Dune: lean() strips out mongoose data of the return
+const user = await User.findOne({ username }).lean();
+session_user = user;
+if (!user) {
+
+return res.json({status: 'error', error: 'Invalid username/password'})
+}
+
+if (await bcrypt.compare(password, user.password)) {
+
+// Dune: Secret token shared between client and server
+const token = jwt.sign({
+id: user._id,
+username: user.username
+},
+JWT_SECRET
+);
+
+res.sendFile('/main.html');
+
+
+return res.json({ status: 'ok', data: token });
+
+}
+
+
+res.json({ status: 'error', data: 'Invalid username/password' });
+});
+  </code></pre>
+				</section>
+				<section>
+					<h4>Example: Database</h4>
+					<img class="r-stretch" src="../img/mongodb.png">
+				</section>
+			</section>
+			<section>
+				<h4>Please wait</h4>
+				<p>Changing to Visual Studio Code</p>
+			</section>
+		</div>
+	</div>
+
+	<script src="../dist/reveal.js"></script>
+	<script src="../plugin/notes/notes.js"></script>
+	<script src="../plugin/markdown/markdown.js"></script>
+	<script src="../plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
+</html>
