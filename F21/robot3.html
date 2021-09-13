@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Multiple agent communication and Swarmanoids</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/black.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h4>Multiple agent communication and Swarmanoids</h4>
+            </section>
+            <section>
+                <section>
+                    <h4>Information</h4>
+                    <ul>
+                        <li class="fragment">Communication format must be global</li>
+                        <li class="fragment">Shared information must be the same</li>
+                        <li class="fragment">No inference (that means you too, Swift Type)</li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>Communication format</h4>
+                    <ul>
+                        <li class="fragment">Type</li>
+                        <li class="fragment">Strength</li>
+                        <li class="fragment">Nature</li>
+                        <li class="fragment">Protocol</li>
+                        <li class="fragment">Position</li>
+                    </ul>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>Finding target and telling others where it is</h4>
+                    <div class="r-stack">
+                        <img class="fragment" src="img/robot_maze1.png">
+                        <img class="fragment" src="img/robot_maze2.png">
+                    </div>
+                </section>
+                <section>
+                    <h4>Now what?</h4>
+                    <img class="r-stretch" src="img/robot_maze2.png">
+                    <p class="fragment">By introducing the data from odometry into our communication format and
+                        triangulate the position, we can move forward</p>
+                </section>
+                <section>
+                    <h4>Relaying information</h4>
+                    <img class="r-stretch" src="img/robot_maze3.png">
+                    <p class="fragment">Using direction (angles) and timestamps, the robots can determine which path to
+                        take towards the target</p>
+                </section>
+                <section>
+                    <h4>Moving to last known position</h4>
+                    <img class="r-stretch" src="img/robot_maze4.png">
+                    <p class="fragment">And there we go, mission completed</p>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>But hold up?! That was superficial..</h4>
+                    <p class="fragment">The Strength segment in the communication message, is
+                        responsible for determining
+                        which position to turn to</p>
+                </section>
+                <section>
+                    <h4>Let's break it down</h4>
+                    <ol>
+                        <li class="fragment">When a robot finds the target, a timestamp is set and a message is
+                            broadcasted</li>
+                        <li class="fragment">The recipient of the broadcast differentiates between the time in the
+                            message against it's
+                            own time</li>
+                        <li class="fragment">The recipient now compares between all the messages in which it has
+                            received,
+                            if any, and determines the shortest (newest time) path</li>
+                    </ol>
+                </section>
+            </section>
+        </div>
+    </div>
+    <script src="dist/reveal.js">
+    </script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+        // More info about initialization & config:
+        // - https://revealjs.com/initialization/
+        // - https://revealjs.com/config/
+        Reveal.initialize({
+            hash: true,
+
+            // Learn about plugins: https://revealjs.com/plugins/
+            plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+        });
+    </script>
+</body>
+
+</html>

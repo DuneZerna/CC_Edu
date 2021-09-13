@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Self organising systems and Morphogeneses</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/black.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <section>
+                    <h4>Self organising systems and Morphogeneses</h4>
+                </section>
+                <section>
+                    <h4>How reaction-diffusion (RD), Turing patterns (TP) and, gene regulatory network (GRN) can solve
+                        problems
+                    </h4>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>Reaction-diffusion</h4>
+                    <p class="fragment">Originated from the chemical reaction-diffusion systems</p>
+                </section>
+                <section>
+                    <p>In the field of chemistry:</p>
+                    <p class="fragment"><em>Reaction-diffusion equations describe the behaviour of a large range of
+                            chemical systems where diffusion of material competes with the production of that material
+                            by some form of chemical reaction.</em></p>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>Turing Patterns</h4>
+                    <p class="fragment"><em>Model wherein two homogeneously distributed substances interact to produce
+                            stable patterns during <span style="color: green;">morphogenesis</span></em></p>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>Gene Regulatory Networks</h4>
+                    <p class="fragment"><em>Network that regulates itself based on components within itself</em></p>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>Kilobots: Self-organising swarm robotic system</h4>
+                    <div class="r-stack">
+                        <img class="fragment" src="img/kilobots.png">
+                        <img class="fragment" src="img/kilobots2.png">
+                    </div>
+                </section>
+                <section>
+                    <h4>Kilobots: in terms of RD system</h4>
+                    <ul>
+                        <li class="fragment">Activator component</li>
+                        <li class="fragment">Inhibitor component</li>
+                    </ul>
+                    <p class="fragment">Activator <em style="color: green;">A</em> &amp; inhibitor <em
+                            style="color: red;">I</em></p>
+                </section>
+                <section>
+                    <h4>Kilobots: in terms of TP</h4>
+                    <p class="fragment">Using <em style="color: green;">A</em> &amp; <em style="color: red;">I</em>,
+                        each robot contain a set of concentration from each component.</p>
+                    <p class="fragment">A select few are set with a high concentration of <em
+                            style="color: green;">A</em>, called Turing Points</p>
+                </section>
+                <section>
+                    <h4>Kilobots: in terms of GRN</h4>
+                    <p class="fragment">Based the concentration level of both <em style="color: green;">A</em>, pattern
+                        formation gets reshaped.</p>
+                    <p class="fragment">Driven by: GRN itself and migration</p>
+                </section>
+                <section>
+                    <h4>Kilobots: Working conditionss</h4>
+                    <ol>
+                        <li class="fragment">The robot must detect that it is on the outer edge of the swarm</li>
+                        <li class="fragment">it must detect a local concentration of <em style="color: green;">A</em>
+                            lower than a certain threshold
+                            value.</li>
+                    </ol>
+                </section>
+                <section>
+                    <h2>Kilobots: Swarm Process</h2>
+                    <img class="r-stretch" src="img/kilobots3.jpg">
+                    <p>The swarm mechanic</p>
+                </section>
+                <section>
+                    <h4>Kilobots: Finite State Machine</h4>
+                    <img class="r-stretch" src="img/kilobots4.png">
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>Appliance</h4>
+                    <ul>
+                        <li class="fragment">Medical nanobots</li>
+                    </ul>
+                    <img class="r-stretch" src="img/nanobots.jpg">
+                </section>
+            </section>
+            <section>
+                <h1>Questions?</h1>
+            </section>
+        </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+        // More info about initialization & config:
+        // - https://revealjs.com/initialization/
+        // - https://revealjs.com/config/
+        Reveal.initialize({
+            hash: true,
+
+            // Learn about plugins: https://revealjs.com/plugins/
+            plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+        });
+    </script>
+</body>
+
+</html>
